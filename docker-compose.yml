@@ -1,0 +1,41 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    volumes:
+      - ./backend:/app/backend  # Para live reload
+      - ./static:/app/static
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    env_file:
+      - ./backend/.env
+
+  frontend:
+    build:
+      context: ./frontend
+    #volumes:
+    #  - ./frontend:/app
+    #  - /app/node_modules  # evita errores con node_modules
+    ports:
+      - "5173:5173"
+    stdin_open: true
+    tty: true
+
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: db_my_assistant
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: persia098
+    command: postgres -c listen_addresses='*'
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
