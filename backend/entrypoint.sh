@@ -2,7 +2,7 @@
 set -e
 
 echo "Esperando a la base de datos..."
-while ! nc -z db 5432; do
+while ! nc -z db ####; do
   sleep 1
 done
 
