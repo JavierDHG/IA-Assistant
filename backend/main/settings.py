@@ -22,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-r!9qbh&5_=k@n3-fbx)$&b4ab0b%_cq#@xu8qnvrmgxv^@w)$5'
+SECRET_KEY = '####'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['backend', 'localhost']
+ALLOWED_HOSTS = ['####', 'localhost']
 
 
 # Application definition
@@ -147,7 +147,7 @@ print("BASE_DIR:", BASE_DIR)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    "http://localhost:####",
 ]
 
 DEBUG = config('DEBUG', default=False, cast=bool)
@@ -161,8 +161,8 @@ CACHES = {
     }
 }
 
-GOOGLE_CREDENTIALS_FILE = '/app/backend/credentials.json'
-GOOGLE_CALENDAR_ID = 'madara098javier@gmail.com'
+GOOGLE_CREDENTIALS_FILE = '####'
+GOOGLE_CALENDAR_ID = '####'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
